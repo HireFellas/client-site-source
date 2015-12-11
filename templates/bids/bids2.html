@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFellas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/bootflat.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/bids.css">
+        <script src="/static/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand nav-element" href="#page-top">hire<strong>fellas</strong></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li>
+                            <a class="nav-link nav-element" href="#howitworks">How it works</a>
+                        </li>
+                        <li>
+                            <a class="nav-link nav-element" href="#login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <div id="wrap">
+                <div class="container">
+                    <div class="row">
+                    {% for bid in bids %}
+                        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
+                        <div class ="user-block">
+                            <img class="user-block-img" src="{{ bid.photographer.pgr_avatar }}">
+                            <section class="info">
+                                <h5 class="name text-left">Sophie Doe</h5>
+                                <span>
+                                    <span class="star-rating pull-left">
+                                        <span class="fa fa-star" data-rating="1"></span>
+                                        <span class="fa fa-star" data-rating="2"></span>
+                                        <span class="fa fa-star" data-rating="3"></span>
+                                        <span class="fa fa-star-half-o" data-rating="4"></span>
+                                        <span class="fa fa-star-o" data-rating="5"></span>
+                                    </span>
+                                    <span>
+                                        <span class="fa fa-rupee pull-right">50,000</span>
+                                    </span>
+                                </span>
+                            </section>
+                            <span class="btn-group btn-group-justified user-block-nav">
+                                  <a class="btn btn-default" href="#" data-toggle="modal" data-target="#user1"><i class="fa fa-user"></i></a>
+                                  <a class="btn btn-default" href="#"><i class="fa fa-briefcase"></i></a>
+                                  <a class="btn btn-default" href="#"><i class="fa fa-comments-o"></i></a>
+                                  <a class="btn btn-default" href="#"><i class="fa fa-envelope"></i></a>
+                            </span>
+                        </div>
+                        </div>
+                    {% endfor %}
+                        <div class="modal fade user-profile" id="user1" tabindex="-1" role="dialog" aria-labelledby="user1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <img class="profile-pic" src="img/dp.jpg">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <section class="info">
+                                                        <h5 class="name text-left">Sophie Doe</h5>
+                                                        <span>
+                                                            <span class="star-rating pull-left">
+                                                                <span class="fa fa-star" data-rating="1"></span>
+                                                                <span class="fa fa-star" data-rating="2"></span>
+                                                                <span class="fa fa-star" data-rating="3"></span>
+                                                                <span class="fa fa-star-half-o" data-rating="4"></span>
+                                                                <span class="fa fa-star-o" data-rating="5"></span>
+                                                            </span>
+                                                            <span>
+                                                                <span class="fa fa-rupee pull-right">50,000</span>
+                                                            </span>
+                                                        </span>
+
+                                                    </section>
+                                                    <section class="btn btn-primary btn-block hire">HIRE</section>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ul class="nav nav-tabs nav-justified profile-content" role="tablist">
+                                          <li class="active"><a href="#home" role="tab" data-toggle="tab"><i class="fa fa-user"></i> About</a></li>
+                                          <li><a href="#profile" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                                          <li><a href="#messages" role="tab" data-toggle="tab"><i class="fa fa-comments-o"></i> Reviews</a></li>
+                                          <li><a href="#settings" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i> Contact</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                          <div class="tab-pane active" id="home">...</div>
+                                          <div class="tab-pane" id="profile">...</div>
+                                          <div class="tab-pane" id="messages">...</div>
+                                          <div class="tab-pane" id="settings">...</div>
+                                        </div>
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+        </div>
+
+
+
+
+
+    <section class="footer">
+        <div class="container">
+                <div class="clearfix">
+                  <div class="footer-logo"><a href="#"><img src="/static/img/footer-logo.png">HireFellas</a></div>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">COMPANY</dt>
+                    <dd class="nav-item"><a href="#">About</a></dd>
+                    <dd class="nav-item"><a href="#">Vision</a></dd>
+                    <dd class="nav-item"><a href="#">Terms &amp; Conditions</a></dd>
+                    <dd class="nav-item"><a href="#">Privacy</a></dd>
+                    <dd class="nav-item"><a href="#">Testimonials</a></dd>
+                  </dl>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">SUPPORT</dt>
+                    <dd class="nav-item"><a href="#">Contact</a></dd>
+                    <dd class="nav-item"><a href="#">FAQ</a></dd>
+                    <dd class="nav-item"><a href="#">Vision</a></dd>
+                  </dl>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">PHOTOGRAPHERS</dt>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                  </dl>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">LOREM</dt>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                  </dl>
+                </div>
+              </div>
+        
+    </section>
+
+        <script src="/static/js/jquery-1.11.0.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/icheck.min.js"></script>
+        <script src="/static/js/jquery.fs.selecter.min.js"></script>
+        <script src="/static/js/jquery.fs.stepper.min.js"></script>
+        <script src="/static/js/plugins.js"></script>
+        <script src="/static/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            
+        </script>
+    </body>
+</html>

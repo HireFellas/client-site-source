@@ -1,0 +1,120 @@
+.transparent{ 
+    border-width: 0px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: rgba(0,0,0,0.0);
+    background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
+    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
+}
+
+
+header {
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url(../img/header.jpg);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+#howitworks{
+    margin-top: 15%;
+}
+
+section{
+    padding: 170px 0;
+}
+
+.section-heading{
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+section h3.section-subheading {
+    margin-bottom: 75px;
+    text-transform: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+/* ========== Carausal =========*/
+
+
+.carousel {
+  height: auto;
+}
+.carousel .item {
+  height: auto;
+  background-color: #777;
+}
+.carousal-inner{
+    max-height: 776px;
+}
+.carousel-inner > .item > img {
+  min-width: 100%;
+  height: auto;
+}
+
+.carousel-fade .item {-webkit-transition: opacity 3s; -moz-transition: opacity 3s; -ms-transition: opacity 3s; -o-transition: opacity 3s; transition: opacity 3s;}
+.carousel-fade .active.left {left:0;opacity:0;z-index:-4;}
+.carousel-fade .next {left:0;opacity:1;z-index:-5;}
+
+
+.request-form {
+    margin-top: -25%;
+}
+
+.request-form .form-section{
+    background:rgba(255,255,255,0.9);
+    border: 2px solid #3bafda;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 15px #222222;
+}
+
+.form-section form{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.carousel-control i{
+    position: absolute;
+    top: 50%;
+}
+
+
+
+.social-box{
+  margin: 0 auto;
+  padding: 38px;
+}
+
+.heading-desc{
+    font-size:20px;
+    font-weight:bold;
+    text-align: center;
+}
+.social-box > div{
+    margin: 20px;
+}
+
+
+#testimonials{
+    padding: 0px;
+}
+
+#testimonials img{
+    width: 100%;
+    height: auto;
+}

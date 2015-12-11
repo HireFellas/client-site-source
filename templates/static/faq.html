@@ -1,0 +1,113 @@
+{% extends "jobs/base2.html" %}
+
+
+{% block seo %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFellas | FAQ | Photographers, Corporate, Compare, Hire</title>
+        <meta name="description" content="Discover, compare and hire photographers effortlessly. HireFellas is your one stop for all your photography requirements including wedding, engagement, candid, commercial, corporate or fashion portfolios. Hire photographers anywhere in India including Chennai, Delhi, Bangalore, Cochin, Hyderabad, and Mumbai. We have some of the best photographers on our platform, all verified, trustworthy and reliable."/>
+        <meta name="keyphrases" content="HireFellas.com, HireFellas, wedding photographer, candid photography, candid photographer, photographers in India, hire a photographer, wedding images, indian wedding photography, wedding photographers, pre wedding photography, engagement photos, couple photography, hire wedding, photographer, hire photographer chennai, best wedding photographers, wedding cinematography, videography, wedding album, photobook, birthday photography, corporate event photography, fashion portfolio, wedding invitation, commercial photography, get quotes, compare " />
+        <meta name="keywords" content="HireFellas.com, HireFellas, wedding photographer, candid photography, candid photographer, photographers in India, hire a photographer, wedding images, indian wedding photography, wedding photographers, pre wedding photography, engagement photos, couple photography, hire wedding, photographer, hire photographer chennai, best wedding photographers, wedding cinematography, videography, wedding album, photobook, birthday photography, corporate event photography, fashion portfolio, wedding invitation, commercial, get quotes, compare" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+
+{% block style %}
+<style type="text/css">
+.answer {
+    display:none;
+    padding-left: 24px;
+}
+ 
+h6 {
+    line-height:30px;
+    font-size:18px;
+    color:rgb(100,150,200);
+    padding-left:24px;
+    cursor:pointer;
+    font-family: 'Lato', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<div id="wrap"><br>
+	<div class="container">
+	<section id="faq-list">
+		<h3> FAQs </h3>
+		<hr><br>
+		<h6 class="wow fadeIn" >How does HireFellas simplify things for me?</h6>
+		<div class="answer">
+		At HireFellas, we connect people who need photography services with a pool of talented photographers. Instead of just returning photographers listings with ratings and reviews, a search on Hirefellas.com provides you with competitive price quotes from photographers. This means that you end up hiring the photographer who wants to do the job, and will do it well. There’s no need to hunt for the right deal in listing portals and portfolio sites of photographers.</div>
+
+		<h6 class="wow fadeIn" >How is HireFellas different from listing portals?</h6>
+		<div class="answer">
+		HireFellas is not a listing portal or a portfolio site, it is a curated marketplace for photography services. Photographers who are invited to join our platform have to meet several quality standards and undergo identity verification processes. We allow only the best talent on our platform, so that you can hire the best.<br>
+
+		Ratings: Listing sites return community ratings and reviews for photographers. They're open forums where pools of reviews can be influenced or bought. On our platform, only people who have completed an assignment with a HireFellas photographer can leave a review.
+		<br>
+		Effectiveness: Using our advanced algorithm, we match you specifically with photographers competent for the assignment.
+		<br>
+		Privacy: We do not share customer’s details with the service provider for marketing purposes. This means that you don’t have to worry about annoying marketing calls or spam mails.
+		</div>
+
+		<h6 class="wow fadeIn" >How does HireFellas’ rating system work?</h6>
+		<div class="answer">
+		We ensure our reviews are from real clients who have hired our photographers. Reviews are collected and verified by our team online and by phone. We do not receive any advertising money from professional photographers, so we have no conflicts of interest.
+		<br>
+		Each photographer’s rating on HireFellas is based on three factors: <br>
+		Portfolio (40%)<br>
+		Information Provided and Identity Verification (20%)<br>
+		Previous Clients' Ratings (40%)<br>
+		</div>
+
+		<h6 class="wow fadeIn" >How much is this going to cost me?</h6>
+		<div class="answer">
+		HireFellas offers its services for free to the user. There are no charges for consumers to use our site, contact photographers or book their appointments online. The customer only pays the photographer for the job done.
+
+		</div>
+
+
+		<h6 class="wow fadeIn" >How does HireFellas find its photographers?</h6>
+		<div class="answer">
+		We hand pick them. Yes, seriously. We collaborate with high quality professional photographers who we believe will add to the quality of our platform, and invite them to join our community. Professional photographers also recommend us to their peers, who come to us and request to join.
+		</div>
+
+		<h6 class="wow fadeIn" >Why don't some professional photographers list an hourly rate?</h6>
+		<div class="answer">
+		Some photographers choose to price their jobs depending on the individual customer needs rather than by the hour. In your correspondence with the photographer, ask him or her for a quote for your job.
+		</div>
+
+		<h6 class="wow fadeIn" >What happens when I submit a request for a photographer?</h6>
+		<div class="answer">
+		<p>
+		Once you submit a request, our team reviews your job and matches you with the photographers we believe are best able to meet your needs. Request the selected photographers to post their quotes onto our platform, based on the information provided by you. The more information you give us, the better we're able to match you up.
+
+		</p>
+		</div>
+
+		<br><br><br><br>
+		</section>
+		</div>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+	
+$(document).ready(function() {
+    $('#faq-list h6').click(function() {
+ 
+        $(this).next('.answer').slideToggle(500);
+        $(this).toggleClass('close');
+        $(this).toggleClass('close');
+ 
+    });
+});
+
+    </script>
+
+{% endblock %}

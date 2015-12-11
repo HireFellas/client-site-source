@@ -1,0 +1,137 @@
+{% extends "jobs/base2.html" %}
+
+{% block seo %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFellas | Request | Photographers, Chennai, Wedding, Candid</title>
+        <meta name="description" content="Discover, compare and hire photographers effortlessly. HireFellas is your one stop for all your photography requirements including wedding, engagement, candid, commercial, corporate or fashion portfolios. Hire photographers anywhere in India including Chennai, Delhi, Bangalore, Cochin, Hyderabad, and Mumbai. We have some of the best photographers on our platform, all verified, trustworthy and reliable."/>
+        <meta name="keyphrases" content="HireFellas.com, HireFellas, wedding photographer, candid photography, candid photographer, photographers in India, hire a photographer, wedding images, indian wedding photography, wedding photographers, pre wedding photography, engagement photos, couple photography, hire wedding, photographer, hire photographer chennai, best wedding photographers, wedding cinematography, videography, wedding album, photobook, birthday photography, corporate event photography, fashion portfolio, wedding invitation, commercial photography, get quotes, compare " />
+        <meta name="keywords" content="HireFellas.com, HireFellas, wedding photographer, candid photography, candid photographer, photographers in India, hire a photographer, wedding images, indian wedding photography, wedding photographers, pre wedding photography, engagement photos, couple photography, hire wedding, photographer, hire photographer chennai, best wedding photographers, wedding cinematography, videography, wedding album, photobook, birthday photography, corporate event photography, fashion portfolio, wedding invitation, commercial, get quotes, compare" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+
+{% block content %}
+<div id="wrap">
+            <section class="bids">
+                <div class="container">
+                        
+                        <form action="/quote/" method="post" class="form-horizontal col-md-8 col-md-offset-2" id="QuoteRquest" accept-charset="utf-8">
+                            {% csrf_token %}
+                        <fieldset>
+                            <legend>Quote Details</legend>
+                            {% if request.user.is_authenticated %}
+                            {% else %}
+                                <div class="alert alert-warning text-center">
+                                    <strong>Warning!</strong> You have to login to submit a quote request.
+                                </div>
+                            {% endif %}
+                            <div class="form-group wow fadeIn" data-wow-delay="0.2s">
+                                <label for="location" class="col-sm-3 control-label">    
+                                    Location
+                                </label>
+                                <div class="col-sm-9"><input required name="location" type="text" value="{{ form.location.field.initial }}" id="location" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group wow fadeIn" data-wow-delay="0.3s">
+                                <label for="photography_type" class="col-sm-3 control-label">    
+                                    Photography type
+                                </label>
+                                <div class="col-sm-9"><input required class="form-control" value="{{ form.photography_type.field.initial }}" name="photography_type" type="text" id="photography_type" >
+                                </div>
+                            </div>
+
+                            <div class="form-group wow fadeIn" data-wow-delay="0.4s">
+                                <label for="no_people" class="col-sm-3 control-label"> 
+                                    No: people
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="no_people" id="no_people" class="form-control">
+                                        {% for choice in form.no_people.field.choices %}
+                                            <option value='{{ choice.0 }}'>{{ choice.1 }}</option>
+                                        {% endfor %}
+                                        
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group wow fadeIn" data-wow-delay="0.5s">
+                                <label for="event_date" class="col-sm-3 control-label">   
+                                    Date
+                                </label>
+                                <div class="col-sm-9">
+                                    <div class="input-group date">
+            <input required type="text" name="event_date" id="event_date" class="form-control"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+        </div>
+                                    <span class="help-inline">  When is the event</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group wow fadeIn" data-wow-delay="0.6s">
+                                <label for="event_venue" class="col-sm-3 control-label"> 
+                                    Venue
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="event_venue" id="event_venue" class="form-control">
+                                        {% for choice in form.event_venue.field.choices %}
+                                            <option value='{{choice.0 }}'>{{ choice.1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group wow fadeIn" data-wow-delay="0.7s">
+                                <label for="deliverables" class="col-sm-3 control-label"> 
+                                    Deliverables
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="deliverables" id="deliverables" class="form-control">
+                                        {% for choice in form.deliverables.field.choices %}
+                                            <option value='{{ choice.0 }}'>{{ choice.1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group wow fadeIn" data-wow-delay="0.8s">
+                                <label for="budget" class="col-sm-3 control-label"> 
+                                    Budget
+                                </label>
+                                <div class="col-sm-9">
+                                    <select name="budget" id="budget" class="form-control">
+                                        {% for choice in form.budget.field.choices %}
+                                            <option value='{{ choice.0 }}'>{{ choice.1 }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                 
+                           <div class="form-group wow fadeIn" data-wow-delay="0.9s">
+                                <label for="details" class="col-sm-3 control-label">    
+                                    Additional details
+                                </label>
+                                <div class="col-sm-9"><textarea required class="form-control" row="10" cols="30" name="details" type="text" value="" id="details"></textarea>
+                                </div>
+                            </div>
+                           
+                            
+
+                            <div class="form-group wow fadeIn" data-wow-delay="1.s">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                  <div class="pull-right">
+                                    <button type="reset" class="btn btn-large btn-default">Reset</button>
+                                    {% if request.user.is_authenticated %}
+                                        <button type="submit" value="Submit" class="btn btn-large btn-primary">Submit</button>
+                                    {% else %}
+                                        <button type="button" class="btn btn-large btn-primary"  onClick="alert( 'Login to submit quote requests' )">Submit</button>
+                                    {% endif %}
+                                  </div>
+                                </div>
+                              </div>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+            </section>
+        </div>
+{% endblock %}

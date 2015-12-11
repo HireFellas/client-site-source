@@ -1,0 +1,97 @@
+{% extends "jobs/base2.html" %}
+
+{% block content %}
+<div id="wrap">
+<div class="container">
+                    <div class="row">
+                    {% for bid in bids %}
+                        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
+                        <div class ="user-block">
+                            <img class="user-block-img" src="{{ bid.photographer.pgr_avatar }}">
+                            <section class="info">
+                                <h5 class="name text-left">{{ bid.photographer.name }}</h5>
+                                <span>
+                                    <span class="star-rating pull-left">
+                                        <span class="fa fa-star" data-rating="1"></span>
+                                        <span class="fa fa-star" data-rating="2"></span>
+                                        <span class="fa fa-star" data-rating="3"></span>
+                                        <span class="fa fa-star-half-o" data-rating="4"></span>
+                                        <span class="fa fa-star-o" data-rating="5"></span>
+                                    </span>
+                                    <span>
+                                        <span class="fa fa-rupee pull-right">50,000</span>
+                                    </span>
+                                </span>
+                            </section>
+                            <span class="btn-group btn-group-justified user-block-nav">
+                                  <a class="btn btn-default" href="#" data-toggle="modal" data-target="#user{{ bid.photographer.pk }}"><i class="fa fa-user"></i></a>
+                                  <a class="btn btn-default" href="#"><i class="fa fa-briefcase"></i></a>
+                                  <a class="btn btn-default" href="#"><i class="fa fa-comments-o"></i></a>
+                                  <a class="btn btn-default" href="#"><i class="fa fa-envelope"></i></a>
+                            </span>
+                        </div>
+                        </div>
+                    {% endfor %}
+                    {% for bid in bids %}
+                        <div class="modal fade user-profile" id="user1" tabindex="-1" role="dialog" aria-labelledby="user{{ bid.photographer.pk }}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-6">
+                                                    <img class="profile-pic" src="img/dp.jpg">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <section class="info">
+                                                        <h5 class="name text-left">{{ bid.photographer.name }}</h5>
+                                                        <div>
+                                                        
+                                                            <span class="star-rating pull-left">
+                                                                <span class="fa fa-star" data-rating="1"></span>
+                                                                <span class="fa fa-star" data-rating="2"></span>
+                                                                <span class="fa fa-star" data-rating="3"></span>
+                                                                <span class="fa fa-star-half-o" data-rating="4"></span>
+                                                                <span class="fa fa-star-o" data-rating="5"></span>
+                                                            </span>
+                                                            <span>
+                                                                <span class="fa fa-rupee pull-right">50,000</span>
+                                                            </span>
+                                                        
+                                                        </div>
+                                                        <div>
+                                                            <div>Chennai</div>
+                                                            <div>Wedding Photographer</div>
+                                                        </div>
+                                                    </section>
+                                                    <section class="btn btn-primary btn-block hire">HIRE</section>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ul class="nav nav-tabs nav-justified profile-content" role="tablist">
+                                          <li class="active"><a href="#home" role="tab" data-toggle="tab"><i class="fa fa-user"></i> About</a></li>
+                                          <li><a href="#profile" role="tab" data-toggle="tab"><i class="fa fa-briefcase"></i> Portfolio</a></li>
+                                          <li><a href="#messages" role="tab" data-toggle="tab"><i class="fa fa-comments-o"></i> Reviews</a></li>
+                                          <li><a href="#settings" role="tab" data-toggle="tab"><i class="fa fa-envelope"></i> Contact</a></li>
+                                        </ul>
+                                        <div class="tab-content">
+                                          <div class="tab-pane active" id="home">...</div>
+                                          <div class="tab-pane" id="profile">...</div>
+                                          <div class="tab-pane" id="messages">...</div>
+                                          <div class="tab-pane" id="settings">...</div>
+                                        </div>
+                                    </div>
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        
+                        
+                    </div>
+                </div>
+</div>
+{% endblock %}

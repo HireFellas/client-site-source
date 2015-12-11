@@ -1,0 +1,87 @@
+.navbar .container{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar-default{
+	 background-color: rgba(67,74,84,1);
+}
+.navbar-brand{
+    font-size: 3em;
+}
+
+
+.navbar>.container .navbar-brand{
+    color: #e6e9ed;
+}
+.navbar-default .navbar-text, .navbar-default .navbar-nav > li > a {
+    font-size: 1.3em;
+    color: white;
+    margin-right: 50px;    
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #3bafda; }
+
+.nav-element > a{
+    color: white;
+}
+.navbar-link{
+    font-size: 2em;
+}
+
+.user-block-nav{
+	padding-top: 10%;
+}
+
+.user-block{
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	height: auto;
+	border: 1px solid #cccccc;
+}
+.user-block-img{
+	width: 100%;
+	height: 100%;
+}
+.user-block-nav .btn{
+	border-radius: 0;
+	border-color: #eeeeee !important;
+	font-size: 1.5em;
+}
+
+.user-block-nav a:hover{
+	background-color: #3bafda;
+}
+
+.info{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+
+.user-profile{
+	width: 100%;
+}
+
+.profile-pic{
+	width: 100%;
+}
+
+.hire{
+	margin-top: 25%;
+}
+
+.profile-content{
+	margin-top: 10px;
+}
+
+#wrap{
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.navbar-default{
+	background-color: #161616 !important;
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFellas</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="/static/css/normalize.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/bootflat.css">
+        <link rel="stylesheet" href="/static/css/font-awesome.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <link rel="stylesheet" href="/static/css/home.css">
+        <script src="/static/js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav class="navbar navbar-default navbar-fixed-top transparent" id="header_nav" data-spy="affix" data-offset-top="125">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand nav-element" href="#page-top">hire<strong>fellas</strong></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li>
+                        {% if request.user.is_authenticated %}
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle usernav" data-toggle="dropdown">
+                              <span class="username">
+                                {% if request.user.first_name or request.user.last_name %}
+                                    {{ request.user.first_name }} {{ request.user.last_name }}
+                                {% else %}
+                                    {{ request.user.username }}
+                                {% endif %}
+                                </span>
+                                <span class="pull-right">
+                            <img src="{{ request.user.profile.profile_image_url }}" class="pull-right userpic"/>
+                            </span>
+                                </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="/bids/">Quotes Received <i class="fa fa-list pull-right"></i></a></li>
+                                <li class="divider"></li>
+                                <li><a href="/accounts/logout/">Sign Out <i class="fa fa-sign-out pull-right"></i></a></li>
+                              </ul>
+                            </li>
+                        {% else %}
+                            <a class="nav-link nav-element login-button" href="#" data-toggle="modal" data-target="#loginModal" >Login</a>
+                        {% endif %}
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                    <h3 class="heading-desc">Login to HireFellas</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="social-box">
+                                <div class="row mg-btm">
+                                 <div class="col-md-8 col-md-offset-2">
+                                    <a href="/accounts/facebook/login/" class="btn btn-primary btn-block">
+                                      <i class="fa fa-facebook"></i>    Login with Facebook
+                                    </a>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <a href="/accounts/google/login/" class="btn btn-danger btn-block" >
+                                      <i class="fa fa-google"></i>    Login with Google
+                                    </a>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                                        
+                    </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                <img src="/static/img/header.jpg" alt="First slide">          
+                </div>
+                <div class="item">
+                <img src="/static/img/header2.jpg" alt="Second slide">
+                </div>
+                <div class="item">
+                <img src="/static/img/header3.jpg" alt="Third slide">
+                </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-arrow-left fa-stack-1x fa-inverse"></i></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-arrow-right fa-stack-1x fa-inverse"></i></a>
+        </div>
+
+        <div class="request-form">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                      <div class="form-section">
+                        <div class="row">
+                            <form role="form" action='quote'>
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                  <label class="sr-only" for="service">Service</label>
+                                  <select class="form-control" name="event_type" id="service">
+                                    <option value="" default disabled selected>What service do you need?</option>
+                                    <option value="Photography">Photography</option>
+                                    </select>
+                                </div>
+                              </div>
+                              <div class="col-md-5">
+                                <div class="form-group">
+                                  <label class="sr-only" for="location">Location</label>
+                                  <input type="text" class="form-control" id="location" name="location" placeholder="Where is the event?">
+                                </div>
+                              </div>
+                              <div class="col-md-2">
+                                <button type="submit" value="Submit" class="btn btn-default btn-primary">Submit</button>
+                              </div>
+                            </form>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="howitworks">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">HOW IT WORKS</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Request</h4>
+                    <p class="text-muted text-justify">Start by telling us your requirements. Fill in the finer details in our guided request form. </p>
+                </div>
+                <div class="col-md-3">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Pick</h4>
+                    <p class="text-muted text-justify">Our proprietary algorithm matches you with the right photographer. You'll receive quotes from up to ten photographers within 24 hours.</p>
+                </div>
+                <div class="col-md-3">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-camera-retro fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Hire</h4>
+                    <p class="text-muted text-justify">Compare quotes, portfolios and ratings. Pick the best that suits your needs and budget.</p>
+                </div>
+                <div class="col-md-3">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-star-half-full fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Rate</h4>
+                    <p class="text-muted text-justify">Your feedback is important to us. When a photographer finishes a job, you’ll be required to rate the photographer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container">
+                <div class="clearfix">
+                  <div class="footer-logo"><a href="#"><img src="/static/img/footer-logo.png">HireFellas</a></div>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">COMPANY</dt>
+                    <dd class="nav-item"><a href="#">About</a></dd>
+                    <dd class="nav-item"><a href="#">Vision</a></dd>
+                    <dd class="nav-item"><a href="#">Terms &amp; Conditions</a></dd>
+                    <dd class="nav-item"><a href="#">Privacy</a></dd>
+                    <dd class="nav-item"><a href="#">Testimonials</a></dd>
+                  </dl>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">SUPPORT</dt>
+                    <dd class="nav-item"><a href="#">Contact</a></dd>
+                    <dd class="nav-item"><a href="#">FAQ</a></dd>
+                    <dd class="nav-item"><a href="#">Vision</a></dd>
+                  </dl>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">PHOTOGRAPHERS</dt>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                  </dl>
+                  <dl class="footer-nav">
+                    <dt class="nav-title">LOREM</dt>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                    <dd class="nav-item"><a href="#"></a></dd>
+                  </dl>
+                </div>
+              </div>
+        
+    </section>
+
+        <script src="/static/js/jquery-1.11.0.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/icheck.min.js"></script>
+        <script src="/static/js/jquery.fs.selecter.min.js"></script>
+        <script src="/static/js/jquery.fs.stepper.min.js"></script>
+        <script src="/static/js/plugins.js"></script>
+        <script src="/static/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            
+        </script>
+    </body>
+</html>
