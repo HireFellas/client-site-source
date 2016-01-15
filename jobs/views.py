@@ -41,7 +41,7 @@ def quoteForm(request):
 		form = QuoteForm(post_values)
 		print >> sys.stderr,  form.is_valid()
 		if form.is_valid():
-#			sg = sendgrid.SendGridClient('pranavprabhakar', 'W@lkinglif3+')
+#			sg = sendgrid.SendGridClient('insert_user_here', 'insert_pass_here')
 #			message = sendgrid.Mail()
 #			message.add_to('HF <mail@hirefellas.com>')
 #			message.set_subject('Quote Request')
