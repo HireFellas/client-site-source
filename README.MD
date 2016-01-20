@@ -26,4 +26,4 @@ Set source to env/bin/activate
 `python manage.py runserver`
 
 
-The platform is no longer in production, but if you’re interested in further development, give a pull request.
+The platform is no longer in production, but if you’re interested in further development, fork, edit and give a pull request.
