@@ -2,7 +2,8 @@
 
 HireFellas is a platform that connects photography service providers with prospective clients.
 
-**Installation:**<br>
+**Installation:**
+
 1) Install virtualenv
 `pip install virtualenv`
 
