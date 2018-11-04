@@ -1,4 +1,4 @@
-######Source code to HireFellas client site
+###Source code to HireFellas client site
 
 HireFellas is a platform that connects photography service providers with prospective clients.
 
